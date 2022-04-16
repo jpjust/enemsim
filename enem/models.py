@@ -31,6 +31,9 @@ class User(TimeStampMixin):
 class School(TimeStampMixin):
     name            = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 # Professors and teachers
 class Professor(TimeStampMixin):
     user            = models.ForeignKey(User, on_delete=models.CASCADE)
