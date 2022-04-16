@@ -1,0 +1,18 @@
+<h1>EnemSim</h1>
+
+{% if info_message %}<span class="info_message">{{ info_message }}</span>{% endif %}
+{% if error_message %}<span class="error_message">{{ error_message }}</span>{% endif %}
+
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <label>E-mail:</label>
+        <input type="email" name="email" size="16" value="{{ data.email }}">
+
+        <label>Senha:</label>
+        <input type="password" name="pwd" size="16">
+    </fieldset>
+    <input type="submit" value="Entrar">
+</form>
+
+<div><a href="{% url 'signup' %}">Cadastrar</a></div>

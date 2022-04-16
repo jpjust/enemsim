@@ -1,0 +1,29 @@
+<h1>Cadastro de estudante</h1>
+
+<p>Preencha o formulário abaixo para efetuar seu cadastro como estudante no EnemSim.</p>
+
+{% if error_message %}<span class="error_message">{{ error_message }}</span>{% endif %}
+
+<form action="{% url 'signup' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <label>Nome:</label>
+        <input type="text" name="first_name" size="50" value="{{ data.first_name }}">
+
+        <label>Sobrenome:</label>
+        <input type="text" name="last_name" size="50" value="{{ data.last_name }}">
+
+        <label>E-mail</label>
+        <input type="email" name="email" size="50" value="{{ data.email }}">
+
+        <label>Escola/Instituição de ensino</label>
+        <input type="text" name="school" size="50" value="{{ data.school }}">
+
+        <label>Senha:</label>
+        <input type="password" name="pwd1" size="16" value="{{ data.pwd1 }}">
+
+        <label>Repita a senha:</label>
+        <input type="password" name="pwd2" size="16" value="{{ data.pwd2 }}">
+    </fieldset>
+    <input type="submit" value="Cadastrar">
+</form>
